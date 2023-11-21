@@ -37,6 +37,32 @@ node *merge(node *list1, node *list2) {
     return merge_list;
 }
 
+node *mergeUnique(node *list1, node *list2) {
+    node *merge_list = NULL;
+
+    while(list1 != NULL) {
+        if(!(isPresent(merge_list, list1->data))) 
+            merge_list = append(merge_list, list1->data);
+        list1 = list1->next;
+    }
+
+    while(list2 != NULL) {
+        if(!(isPresent(merge_list, list2->data)))
+            merge_list = append(merge_list, list2->data);
+        list2 = list2->next;
+    }
+
+    return merge_list;
+}
+
+bool isPresent(node *list, int num) {
+    while (list != NULL) {
+        if(list->data == num) return true;
+        list = list->next;
+    }
+    return false;
+}
+
 void display(node *list) {
     if(list == NULL) {
         fprintf(stderr, "empty.\n");

@@ -30,6 +30,8 @@ int main(int argc, char **argv) {
 
     merged_list = merge(list1, list2);
     display(merged_list);
+    merged_list = mergeUnique(list1, list2);
+    display(merged_list);
 
     return 0;
 }
